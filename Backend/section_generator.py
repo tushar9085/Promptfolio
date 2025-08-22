@@ -1,8 +1,8 @@
 import os
 import pandas as pd
-from llm_module import generate_section_latex
-from prompts import PROMPT_TEMPLATES
-from render_cv import render_cv_from_excel
+from .llm_module import generate_section_latex
+from .prompts import PROMPT_TEMPLATES
+from .render_cv import render_cv_from_excel
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 

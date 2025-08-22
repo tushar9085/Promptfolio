@@ -1,7 +1,7 @@
 # llm_module.py
 import os
 import google.generativeai as genai
-from prompts import PROMPT_TEMPLATES
+from .prompts import PROMPT_TEMPLATES
 from dotenv import load_dotenv
 
 load_dotenv()
