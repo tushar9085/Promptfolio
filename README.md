@@ -68,3 +68,32 @@ The AI CV Builder will enable users to generate a polished, LaTeX-based CV by wr
 - **LaTeX Compilation Errors:** Validate AI output and handle errors gracefully → fallback templates or auto-correction rules.  
 - **Performance Issues with Live Preview:** Consider throttling compilation or using WebAssembly-based LaTeX engines for speed.  
 - **Over-reliance on AI Formatting:** Apply post-processing rules to keep generated LaTeX consistent with template design.
+
+
+
+## Runing the Project
+Create a virtual env in the /root named "env" and install the requirements.txt
+------------
+python -m venv env
+.\env\Scripts\Activate
+
+pip install -r requirements.txt
+
+
+Then start the API in /root
+-------
+uvicorn API.main:app --reload
+
+Run the Frontend in /Frontend/Promptfolio
+------
+/npm run dev
+
+Set GEmini API Key
+--------
+Put it in the /Backend Folder named '.env'
+inside, paste GEMINI_API_KEY=your key
+
+### Make sure your forntend running in port 5173 and Backend in 8000
+
+
+
