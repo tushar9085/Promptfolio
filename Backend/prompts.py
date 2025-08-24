@@ -255,7 +255,7 @@ User input:
 
 
 
-"leadership_awards": r"""
+"awards": r"""
 You are an expert LaTeX resume writer.
 
 STRICTLY follow these rules:

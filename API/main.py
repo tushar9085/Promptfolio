@@ -34,6 +34,22 @@ from Backend.header_generator import generate_header
 # -------------------------------
 app = FastAPI(title="Promptfolio CV Builder API")
 
+
+
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 # -------------------------------
 # Data Models
 # -------------------------------
@@ -56,6 +72,11 @@ class UserInfo(BaseModel):
 # -------------------------------
 # Endpoints
 # -------------------------------
+@app.get("/health")
+def health():
+    return {"ok": True}
+
+
 @app.post("/generate-template")
 def generate_template(request: TemplateRequest):
     try:
