@@ -1,75 +1,82 @@
-# Promptfolio CV Builder
+# How to Run This Project: A Step-by-Step Guide
 
-This project allows you to generate a professional, LaTeX-based CV by writing simple prompts for each section.
+Before you begin, ensure you have the following software installed on your system:
+*   Git: For cloning the repository.
+*   Python (version 3.8 or higher) and pip.
+*   Node.js (which includes npm).
 
-## How to Run This Project
+## Step 1: Clone the Repository
 
-To use the application, you must run both the backend server and the frontend server simultaneously in two separate terminals.
+(Please provide instructions for cloning the repository here if needed.)
 
-### Prerequisites
+## Step 2: Configure the Backend
 
-*   Python (3.8 or higher)
-*   Node.js and npm
+### Create and Activate a Virtual Environment:
+From the project's root’s API directory (`/Promptfolio/API/`), create a Python virtual environment. This will keep the project's dependencies isolated.
 
----
+```shell
+# Create the virtual environment
+python -m venv env
+# Activate the environment
+.\env\Scripts\Activate
+```
 
-### 1. Backend Setup (Terminal 1)
+### Install Python Dependencies:
+Once the virtual environment is active, install all the required Python packages using the `requirements.txt` file.
 
-1.  **Navigate to the Project Root**
-    Open a terminal in the root directory of the project.
+```shell
+pip install -r requirements.txt
+```
 
-2.  **Activate the Python Virtual Environment**
-    ```shell
-    # On Windows
-    .\API\env\Scripts\activate
-    ```
+### Set Up Your API Key:
+The application uses the Google Gemini API. You need to provide your API key.
+1.  Navigate to the `Backend/` folder.
+2.  Create a new file named `.env`.
+3.  Inside this `.env` file, add the following line, replacing `your_key_here` with your actual Gemini API key:
 
-3.  **Install Dependencies**
-    If you haven't installed the required Python packages yet, run:
-    ```shell
-    pip install -r requirements.txt
-    ```
+```
+GEMINI_API_KEY=your_key_here
+```
 
-4.  **Set Your API Key**
-    You must have a `.env` file in the `API/` directory containing your Google Gemini API key.
-    -   Create a file named `.env` inside the `API` folder.
-    -   Add the following line to the file:
-        ```
-        GEMINI_API_KEY=your_actual_api_key_here
-        ```
+## Step 3: Configure the Frontend
 
-5.  **Start the Backend Server**
-    ```shell
-    uvicorn API.main:app --reload
-    ```
-    The backend API will now be running at `http://127.0.0.1:8000`. Keep this terminal open.
+The frontend is a React application. You'll need to install its Node.js dependencies.
 
----
+### Navigate to the Frontend Directory:
+From the project root, move into the frontend's directory.
 
-### 2. Frontend Setup (Terminal 2)
+```shell
+cd Frontend/Promptfolio
+```
 
-1.  **Navigate to the Frontend Directory**
-    Open a second terminal and navigate to the frontend folder:
-    ```shell
-    cd Frontend\Promptfolio
-    ```
+### Install Node.js Dependencies:
+Use `npm` to install all the packages defined in the `package.json` file.
 
-2.  **Install Dependencies**
-    If this is your first time setting up the project, install the Node.js packages:
-    ```shell
-    npm install
-    ```
+```shell
+npm install
+```
 
-3.  **Start the Frontend Server**
-    ```shell
-    npm run dev
-    ```
-    The frontend development server will now be running.
+## Step 4: Run the Application
 
----
+To use the application, both the backend server and the frontend server must be running at the same time. It's best to use two separate terminals for this.
 
-### 3. View the Application
+### In your FIRST terminal (for the Backend):
+1.  Make sure you are in the project's root directory (`Promptfolio`).
+2.  Ensure your Python virtual environment is active.
+3.  Start the FastAPI server:
 
-Open your web browser and navigate to the address provided by the `npm run dev` command, which is typically:
+```shell
+uvicorn API.main:app --reload
+```
+Your backend should now be running at `http://127.0.0.1:8000/docs`
 
-**[http://localhost:5173](http://localhost:5173)**
+### In your SECOND terminal (for the Frontend):
+1.  Navigate to the frontend directory (`Promptfolio/Frontend/Promptfolio`).
+2.  Start the React development server:
+
+```shell
+npm run dev
+```
+Your frontend should now be running at `http://localhost:5173`
+
+You should now see the "PromptFolio" application running and ready to use. Make Sure You set the `.env` file and set your Gemini API. Also, Check Your API and Frontend is running in the given urls.
