@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import '../css/HeaderGenerator.css'
 
 function UserInfoForm({ onSubmit }) {
   const [form, setForm] = useState({
@@ -21,14 +22,14 @@ function UserInfoForm({ onSubmit }) {
 
   return (
     <div className="user-info-form">
-      <h2>Enter Your Information</h2>
+      <h2>Enter Basic Information</h2>
       <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Name" value={form.name} onChange={handleChange} />
-        <input name="location" placeholder="Location" value={form.location} onChange={handleChange} />
-        <input name="email" placeholder="Email" value={form.email} onChange={handleChange} />
-        <input name="phone" placeholder="Phone" value={form.phone} onChange={handleChange} />
-        <input name="linkedin_link" placeholder="LinkedIn Link" value={form.linkedin_link} onChange={handleChange} />
-        <input name="linkedin_display" placeholder="LinkedIn Display" value={form.linkedin_display} onChange={handleChange} />
+        <input type="text" name="name" placeholder="Name" value={form.name} onChange={handleChange} />
+        <input type="text" name="location" placeholder="Location" value={form.location} onChange={handleChange} />
+        <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} />
+        <input type="text" name="phone" placeholder="Phone" value={form.phone} onChange={handleChange} />
+        <input type="text" name="linkedin_link" placeholder="LinkedIn Link" value={form.linkedin_link} onChange={handleChange} />
+        <input type="text" name="linkedin_display" placeholder="LinkedIn User Name" value={form.linkedin_display} onChange={handleChange} />
         <button type="submit" className="user-info-submit">Submit Info</button>
       </form>
     </div>

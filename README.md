@@ -86,7 +86,7 @@ uvicorn API.main:app --reload
 
 Run the Frontend in /Frontend/Promptfolio
 ------
-/npm run dev
+npm run dev
 
 Set GEmini API Key
 --------

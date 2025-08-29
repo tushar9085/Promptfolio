@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import '../css/cvSectionSelector.css'
 
 const sectionOptions = [
   { value: 'education', label: 'Education' },
@@ -30,21 +31,28 @@ function CVSectionsSelector({ onSubmit }) {
   return (
     <div className="cv-sections-selector">
       <h2>Select CV Sections</h2>
+      <h4>The Sections You Want to Keep in Your CV</h4>
       <form onSubmit={handleSubmit}>
         <div className="cv-sections-options">
           {sectionOptions.map(opt => (
-            <label key={opt.value} className="cv-section-option">
+            <div
+              key={opt.value}
+              className={`cv-section-option${selected.includes(opt.value) ? ' selected' : ''}`}
+              onClick={() => handleChange(opt.value)}
+            >
+              {/* Hidden checkbox for accessibility */}
               <input
                 type="checkbox"
                 value={opt.value}
                 checked={selected.includes(opt.value)}
-                onChange={() => handleChange(opt.value)}
+                readOnly
+                tabIndex={-1}
               />
               {opt.label}
-            </label>
+            </div>
           ))}
         </div>
-        <button type="submit" className="cv-sections-submit">Finalize Your CV Sections</button>
+        <button type="submit" className="cv-sections-submit">Generate Template</button>
       </form>
     </div>
   )

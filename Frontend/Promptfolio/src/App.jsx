@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import CVSectionsSelector from './components/CVSectionSelector'
 import UserInfoForm from './components/HeaderGenerator'
 import PromptSection from './components/PromptSection'
+import LatexSnippet from './components/LatexSnippet'
+import './App.css'
 
 
 const API_BASE = import.meta.env.VITE_API_BASE_URL
@@ -55,8 +57,27 @@ function App() {
     }
   }
 
+  const handleDownloadLatex = () => {
+    // Direct link to the static file served by FastAPI
+    const url = `${API_BASE}/output/final_cv.tex`
+    fetch(url)
+      .then(response => response.blob())
+      .then(blob => {
+        const link = document.createElement('a')
+        link.href = window.URL.createObjectURL(blob)
+        link.download = 'final_cv.tex'
+        link.click()
+      })
+      .catch(() => alert('Could not download the file.'))
+  }
+
+
+
   return (
     <div className="app-main">
+      <header className="app-header">
+        <h1 className="app-title">PromptFolio: Build Your CV with Prompts</h1>
+      </header>
       <div className="cv-sections-div">
         <CVSectionsSelector onSubmit={handleSectionsSubmit} />
       </div>
@@ -74,6 +95,13 @@ function App() {
           />
         ))}
       </div>
+
+      {/* <div className="download-latex-div">
+        <button onClick={handleDownloadLatex}>Download Latex file</button>
+      </div> */}
+
+      <LatexSnippet fileUrl={`${API_BASE}/output/final_cv.tex`} />
+      
     </div>
   )
 }

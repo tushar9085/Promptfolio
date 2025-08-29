@@ -1,0 +1,58 @@
+.user-info-form {
+  margin: 2em auto;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-info-form h2 {
+  margin-bottom: 1em;
+  font-size: 1.3em;
+  color: #222;
+}
+
+.user-info-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  width: 100%;
+}
+
+.user-info-form input[type="text"],
+.user-info-form input[type="email"] {
+  display: block;
+  width: 100%;
+  height: 56px;
+  padding: 0 1.5em;
+  border: 1px solid #ccc;
+  border-radius: 2em;
+  font-size: 1.15em;
+  background: #fff;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  transition: border 0.2s;
+}
+
+.user-info-form input[type="text"]:focus,
+.user-info-form input[type="email"]:focus {
+  border: 2px solid #4caf50;
+  outline: none;
+}
+
+.user-info-submit {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 1em 2.5em;
+  border-radius: 2em;
+  cursor: pointer;
+  font-size: 1.15em;
+  margin-top: 1em;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.user-info-submit:hover {
+  background: #555;
+}

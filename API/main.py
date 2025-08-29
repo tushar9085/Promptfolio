@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import List
+from fastapi.staticfiles import StaticFiles
 import os
 import sys
 from dotenv import load_dotenv
@@ -35,6 +36,10 @@ from Backend.header_generator import generate_header
 app = FastAPI(title="Promptfolio CV Builder API")
 
 
+# Serve static files from the Output directory
+
+OUTPUT_DIR = os.path.join(BASE_DIR, "Output")
+app.mount("/output", StaticFiles(directory=OUTPUT_DIR), name="output")
 
 from fastapi.middleware.cors import CORSMiddleware
 

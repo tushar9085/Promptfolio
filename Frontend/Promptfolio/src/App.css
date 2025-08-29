@@ -5,6 +5,25 @@
   text-align: center;
 }
 
+.app-header {
+  background-color: #828282;
+  padding: 1.5em 2em;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2.5em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.app-title {
+  font-size: 2.2em;
+  padding: 1.5em 2em;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
