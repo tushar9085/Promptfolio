@@ -7,8 +7,6 @@ Before you begin, ensure you have the following software installed on your syste
 
 ## Step 1: Clone the Repository
 
-(Please provide instructions for cloning the repository here if needed.)
-
 ## Step 2: Configure the Backend
 
 ### Create and Activate a Virtual Environment:
