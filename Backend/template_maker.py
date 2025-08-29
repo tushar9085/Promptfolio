@@ -34,10 +34,10 @@ def create_custom_template(include_sections: list):
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(template_text)
 
-    print(f"Custom template created at: {output_file}")
-    return output_file
+    # print(f"Custom template created at: {output_file}")
+    # return output_file
 
 
 
-sections_to_include = ["education", "skills"]
-create_custom_template(sections_to_include)
+# sections_to_include = []
+# create_custom_template(sections_to_include)

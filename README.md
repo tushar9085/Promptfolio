@@ -1,99 +1,75 @@
-# AI CV Builder — Project Plan
+# Promptfolio CV Builder
 
-## 1. Problem Statement
-Creating a professional, well-structured CV often requires strong writing skills and design knowledge, which many users may lack.  
-The AI CV Builder will enable users to generate a polished, LaTeX-based CV by writing simple prompts for each section, with real-time preview and customization.
+This project allows you to generate a professional, LaTeX-based CV by writing simple prompts for each section.
 
-## 2. Objectives
-- Enable users to input simple prompts for each CV section (e.g., Education, Work Experience).  
-- Use Gemini LLM to convert prompts into organized, professional LaTeX code for the selected template.  
-- Provide real-time CV preview and regeneration options.  
-- Maintain fixed CV template designs for consistency and aesthetics.
+## How to Run This Project
 
-## 3. Scope
-**In scope:**
-- LaTeX-based CV templates (fixed designs).  
-- Prompt-to-section generation using Gemini LLM.  
-- Real-time compilation and preview of CV.  
-- Ability to modify and regenerate individual sections.
+To use the application, you must run both the backend server and the frontend server simultaneously in two separate terminals.
 
-**Out of scope (for now):**
-- Completely custom template creation by users.  
-- Integration with external CV publishing platforms.  
-- Support for non-LaTeX CV formats (e.g., Word, Google Docs).
+### Prerequisites
 
-## 4. Features & Requirements
+*   Python (3.8 or higher)
+*   Node.js and npm
 
-### Core Features
-1. **Template Selection**  
-   - User selects from a set of predefined LaTeX CV templates.
+---
 
-2. **Section Prompt Input**  
-   - Users enter freeform prompts for each CV section (Education, Work, Skills, etc.).
+### 1. Backend Setup (Terminal 1)
 
-3. **AI Generation**  
-   - Gemini LLM processes prompts and returns LaTeX code for that section according to the chosen template’s style.
+1.  **Navigate to the Project Root**
+    Open a terminal in the root directory of the project.
 
-4. **Real-Time Preview**  
-   - LaTeX code compiles instantly, displaying the CV in a preview window.
+2.  **Activate the Python Virtual Environment**
+    ```shell
+    # On Windows
+    .\API\env\Scripts\activate
+    ```
 
-5. **Section Regeneration**  
-   - Users can modify prompts and regenerate only the affected section.
+3.  **Install Dependencies**
+    If you haven't installed the required Python packages yet, run:
+    ```shell
+    pip install -r requirements.txt
+    ```
 
-6. **Download CV**  
-   - Export final CV as PDF.
+4.  **Set Your API Key**
+    You must have a `.env` file in the `API/` directory containing your Google Gemini API key.
+    -   Create a file named `.env` inside the `API` folder.
+    -   Add the following line to the file:
+        ```
+        GEMINI_API_KEY=your_actual_api_key_here
+        ```
 
-### Non-Functional Requirements
-- **Performance:** Real-time preview with minimal lag.  
-- **Usability:** Simple, clean UI for non-technical users.  
-- **Reliability:** LaTeX compilation errors handled gracefully.
+5.  **Start the Backend Server**
+    ```shell
+    uvicorn API.main:app --reload
+    ```
+    The backend API will now be running at `http://127.0.0.1:8000`. Keep this terminal open.
 
-## 5. Workflow
-1. **Select Template** → Predefined LaTeX CV designs stored in the system.  
-2. **Input Prompts** → User enters text for each section.  
-3. **Generate Section** → Gemini LLM produces LaTeX code for the section.  
-4. **Merge & Compile** → Generated sections are inserted into the fixed LaTeX template structure.  
-5. **Preview** → Live PDF render in browser.  
-6. **Modify / Regenerate** → User edits prompts for specific sections and regenerates.  
-7. **Download** → Save as PDF.
+---
 
-## 6. Technical Considerations
-- **Frontend:** React.js (real-time updates, template selection UI).  
-- **Backend:** Node.js or Python Flask/FastAPI to handle API calls and LaTeX compilation.  
-- **LLM Integration:** Gemini API for text-to-LaTeX generation.  
-- **LaTeX Rendering:** Use a LaTeX-to-PDF tool (e.g., `pdflatex` server-side or WebAssembly-based LaTeX compiler for browser preview).  
-- **Storage:** Temporary in-memory storage for session CV data; optional user accounts for saved CVs.
+### 2. Frontend Setup (Terminal 2)
 
-## 7. Risks & Mitigation
-- **LaTeX Compilation Errors:** Validate AI output and handle errors gracefully → fallback templates or auto-correction rules.  
-- **Performance Issues with Live Preview:** Consider throttling compilation or using WebAssembly-based LaTeX engines for speed.  
-- **Over-reliance on AI Formatting:** Apply post-processing rules to keep generated LaTeX consistent with template design.
+1.  **Navigate to the Frontend Directory**
+    Open a second terminal and navigate to the frontend folder:
+    ```shell
+    cd Frontend\Promptfolio
+    ```
 
+2.  **Install Dependencies**
+    If this is your first time setting up the project, install the Node.js packages:
+    ```shell
+    npm install
+    ```
 
+3.  **Start the Frontend Server**
+    ```shell
+    npm run dev
+    ```
+    The frontend development server will now be running.
 
-## Runing the Project
-Create a virtual env in the /root named "env" and install the requirements.txt
-------------
-python -m venv env
-.\env\Scripts\Activate
+---
 
-pip install -r requirements.txt
+### 3. View the Application
 
+Open your web browser and navigate to the address provided by the `npm run dev` command, which is typically:
 
-Then start the API in /root
--------
-uvicorn API.main:app --reload
-
-Run the Frontend in /Frontend/Promptfolio
-------
-npm run dev
-
-Set GEmini API Key
---------
-Put it in the /Backend Folder named '.env'
-inside, paste GEMINI_API_KEY=your key
-
-### Make sure your forntend running in port 5173 and Backend in 8000
-
-
-
+**[http://localhost:5173](http://localhost:5173)**

@@ -77,7 +77,14 @@
   margin-top: 1em;
 }
 
-.overleaf-button {
+.snippet-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1em; /* Adds space between the buttons */
+  align-items: center;
+}
+
+.overleaf-button, .preview-button {
   display: inline-block;
   background: #4caf50;
   color: #fff;
@@ -92,6 +99,6 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.overleaf-button:hover {
+.overleaf-button:hover, .preview-button:hover {
   background: #45a049;
 }
